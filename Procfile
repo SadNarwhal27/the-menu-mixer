@@ -1,1 +1,1 @@
-web: gunicorn the-menu-mixer.wsgi
+web: gunicorn themenumixer.wsgi
