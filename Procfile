@@ -1,1 +1,1 @@
-web: gunicorn themenumixer.wsgi
+web: gunicorn themenumixer.wsgi:application
