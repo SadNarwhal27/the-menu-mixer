@@ -1,1 +1,1 @@
-web: gunicorn themenumixer.wsgi
+web: gunicorn the_menu_mixer.wsgi --log-file -
