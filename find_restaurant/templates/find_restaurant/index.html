@@ -1,0 +1,15 @@
+{% extends 'find_restaurant/base.html' %}
+
+{% block page_header %}
+
+<h1>The Menu Mixer</h1>
+
+{% endblock page_header %}
+
+{% block content %}
+
+<!-- Restaurant data from context in views.py -->
+{{ restaurant }}
+
+
+{% endblock content %}

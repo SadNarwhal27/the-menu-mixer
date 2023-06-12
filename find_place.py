@@ -46,4 +46,4 @@ class Google():
         return restaurants
     
 google = Google()
-print(google.find_place('breckenridge, mi', 1))
+print(google.find_place('Anschutz Cafe', 1))
