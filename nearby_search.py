@@ -37,10 +37,11 @@ class Google():
 
         return coordinates
 
-    def _map_search_radius(self, location, radius=10):
+    def _map_search_radius(self, location, radius):
         """Creates a bounding box that can be used to geographically filter results"""
 
         R = 6371e3 # Radius of the Earth
+
         radius = self._miles_to_meters(radius)
 
         min_lat = location[0] - radius/R*180/math.pi
@@ -98,7 +99,7 @@ class Google():
         coordinates = self.set_coordinates(location)
 
         # Response parameters
-        distance = self._miles_to_meters(distance)
+        distance_in_meters = self._miles_to_meters(distance)
         place_type = 'restaurant'
         open_now = True
         keyword = None
@@ -106,7 +107,7 @@ class Google():
         # Pulls place data using an API request
         response = self.gmaps.places_nearby(
             location=coordinates,
-            radius=distance,
+            radius=distance_in_meters,
             open_now=open_now,
             type=place_type,
             keyword=keyword,
@@ -169,7 +170,7 @@ class Google():
 
 google = Google()
 
-location = 'breckenridge, mi'
+location = 'mt pleasant, mi'
 # location = (43.4081,-084.475)
 search_radius = 5
 
