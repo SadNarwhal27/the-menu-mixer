@@ -6,5 +6,5 @@ from nearby_search import Google
 def index(request):
     """The home page for The Menu Mixer"""
     restaurant = Google().nearby_search('mt pleasant, mi')
-    context = {'restaurant': restaurant} # Will need to create entries for each field (ex. Name)
+    context = restaurant
     return render(request, 'find_restaurant/index.html', context)

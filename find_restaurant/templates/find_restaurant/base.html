@@ -3,24 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Learning Log</title>
+    <title>The Menu Mixer</title>
 
     {% load django_bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     
 </head>
-<body>
+<body class="bg-dark">
     
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border">
+    <nav class="navbar navbar-expand-md navbar-dark bg-black mb-4" style="--bs-bg-opacity: 0.3;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'find_restaurant:index' %}">Learning Log</a>
+            <a class="navbar-brand" href="{% url 'find_restaurant:index' %}">The Menu Mixer</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
                 aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-            </button>
+            </button> -->
 
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <!-- Add <ul> items for options -->
@@ -30,7 +30,7 @@
     </nav>
 
     <main class="container">
-        <div class="pb-2 mb-2 border-bottom">
+        <div class="pb-2 mb-2">
             {% block page_header %}{% endblock page_header %}
         </div>
         <div>

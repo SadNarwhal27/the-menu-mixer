@@ -2,14 +2,25 @@
 
 {% block page_header %}
 
-<h1>The Menu Mixer</h1>
+<!-- Add a search bar for the address to search from -->
 
 {% endblock page_header %}
 
 {% block content %}
 
-<!-- Restaurant data from context in views.py -->
-{{ restaurant }}
+<div class="p-3 mb-4 bg-light text-light border rounded-3" style="--bs-bg-opacity: 0.1;">
+    <div class="container-fluid py-4 text-center">
+        
+        <h1 class="display-3">{{ name }}</h1>
 
+        <p class="lead">
+            {{ vicinity }}
+        </p>
+        <img src="{{ photos }}" alt="">
+
+    </div>
+</div>
+
+<!-- TODO Add filtering options to make requests more specific -->
 
 {% endblock content %}

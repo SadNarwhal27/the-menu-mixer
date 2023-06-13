@@ -50,6 +50,11 @@ class Google():
             page_token=page_token
         )
         return response
+    
+    def _get_photos(self, photo_reference, maxwidth=400):
+        PHOTOS_URL = "https://maps.googleapis.com/maps/api/place/photo?&photo_reference="
+        url = PHOTOS_URL + photo_reference + f"&maxwidth={maxwidth}&key=" + config('API_KEY')
+        return url
 
     def geocode_location(self, location):
         """Converts a place/address/Place ID into coordinates"""
@@ -106,9 +111,15 @@ class Google():
             data.extend(self._trim_data(response.get('results')))
             next_page_token = response.get('next_page_token')
 
-        # Writes data to a json for testing
+        # # Writes data to a json for testing
         # with open('JSONs/test.json', 'w') as file:
         #     json.dump(data, file, indent=4)
 
         pick = random.choice(data)
+
+        try:
+            pick['photos'] = self._get_photos(pick['photos'][0]['photo_reference'])
+        except:
+            pass
+        
         return pick
