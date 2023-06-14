@@ -7,4 +7,5 @@ app_name = 'find_restaurant'
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
+    path('search/', views.search, name='search')
 ]

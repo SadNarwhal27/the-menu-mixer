@@ -8,3 +8,6 @@ def index(request):
     restaurant = Google().nearby_search('mt pleasant, mi')
     context = restaurant
     return render(request, 'find_restaurant/index.html', context)
+
+def search(request):
+    return render(request, 'find_restaurant/search.html')

@@ -19,7 +19,7 @@ class Google():
     def _trim_data(self, data):
         """Removes restaurants from file based on type tags"""
 
-        TYPES_TO_REMOVE = ['gas_station'] # Removal tags
+        TYPES_TO_REMOVE = ['gas_station', 'spa'] # Removal tags
 
         for place in data:
             if any(tag in TYPES_TO_REMOVE for tag in place['types']):
@@ -51,7 +51,7 @@ class Google():
         )
         return response
     
-    def _get_photos(self, photo_reference, maxwidth=400):
+    def _get_photos(self, photo_reference, maxwidth=1000):
         PHOTOS_URL = "https://maps.googleapis.com/maps/api/place/photo?&photo_reference="
         url = PHOTOS_URL + photo_reference + f"&maxwidth={maxwidth}&key=" + config('API_KEY')
         return url
@@ -71,7 +71,7 @@ class Google():
     def geolocate(self):
         return self.gmaps.geolocate()
     
-    def nearby_search(self, location, distance=1, keyword=None):
+    def nearby_search(self, location, distance=5, keyword=None):
         """Creates a maps Places API request to find nearby restaurants"""
 
         # Makes sure a location tuple is passed into the response request
@@ -121,5 +121,5 @@ class Google():
             pick['photos'] = self._get_photos(pick['photos'][0]['photo_reference'])
         except:
             pass
-        
+
         return pick
